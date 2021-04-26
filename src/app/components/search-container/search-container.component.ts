@@ -11,6 +11,7 @@ export class SearchContainerComponent implements OnInit {
   public videos: Video[] = [];
   loading = false;
   inputTouched = false;
+  searchFilter = '';
 
   constructor(
     private searchService: SearchService

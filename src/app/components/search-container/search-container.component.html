@@ -1,5 +1,9 @@
 <div>
   <app-search-input (search)="searchVideo($event)"></app-search-input>
+  <div *ngIf="videos.length > 1" class="inputBox">
+    <p>Filter Results</p>
+    <input class="inputs" type="text" [(ngModel)]="searchFilter" autofocus>
+  </div>
   <div class="ui four wide column centered grid" *ngIf="inputTouched && !videos.length" style="margin: 3rem;">
     <div class="ui raised aligned segment red warning message">
       <i class="warning icon"></i>
@@ -9,5 +13,5 @@
   <div *ngIf="loading" style="margin: 3em;">
     <div class="ui active centered inline loader"></div>
   </div>
-  <app-search-list *ngIf="!loading" [videos]="videos"></app-search-list>
+  <app-search-list *ngIf="!loading" [videos]="(videos | videoFilter: searchFilter)"></app-search-list>
 </div>

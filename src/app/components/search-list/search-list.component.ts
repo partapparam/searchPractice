@@ -8,8 +8,10 @@ import {Video} from '../../models/video.interface';
 })
 export class SearchListComponent implements OnInit {
   @Input() videos: Video[] = [];
+  @Input() searchText: string;
 
   constructor() { }
+
 
   ngOnInit(): void {
   }
